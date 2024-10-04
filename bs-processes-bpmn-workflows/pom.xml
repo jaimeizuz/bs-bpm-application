@@ -1,0 +1,535 @@
+<?xml version="1.0"?>
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.bs.processes</groupId>
+  <artifactId>bs-processes-bpmn-workflows</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  
+  <properties>
+    <compiler-plugin.version>3.10.1</compiler-plugin.version>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
+    <maven.enforcer.plugin.version>3.5.0</maven.enforcer.plugin.version>
+    <quarkus-plugin.version>3.8.6</quarkus-plugin.version>
+    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
+    <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
+    <quarkus.platform.version>3.8.6</quarkus.platform.version>
+    <micrometer.version>3.2.4</micrometer.version>
+    <bamoe.build>bamoe-community</bamoe.build>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>${quarkus.platform.group-id}</groupId>
+        <artifactId>${quarkus.platform.artifact-id}</artifactId>
+        <version>${quarkus.platform.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <!-- Application-specific dependencies -->
+    <dependency>
+      <groupId>org.bs.processes</groupId>
+      <artifactId>bs-processes-servicetasks</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+  
+    <!-- jBPM and Drools -->
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-with-drools-quarkus</artifactId>
+    </dependency>
+
+    <!-- Addons to include management endpoints in the Kogito app -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-management</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-jobs-management</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-svg</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-source-files</artifactId>
+    </dependency>
+
+    <!-- Persistence -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-agroal</artifactId>
+    </dependency>
+
+    <!-- Data Index Addon -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-index-postgresql</artifactId>
+    </dependency>
+
+    <!-- Jobs Service -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-jobs</artifactId>
+    </dependency>
+
+    <!-- Data Audit -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-audit-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-audit</artifactId>
+    </dependency>
+
+    <!-- Logging -->
+    <dependency>
+      <groupId>io.quarkiverse.loggingmanager</groupId>
+      <artifactId>quarkus-logging-manager</artifactId>
+      <version>3.1.2</version>
+    </dependency>
+
+    <!-- RESTEasy Classic -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy</artifactId>
+    </dependency>
+
+    <!-- Others -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-arc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
+    </dependency>
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>bamoe-enterprise</id>
+      <activation>
+        <property>
+          <name>bamoe.build</name>
+          <value>bamoe-enterprise</value>
+        </property>
+      </activation>
+
+      <repositories>
+        <repository>
+          <id>ibm-bamoe-enterprise-maven-repository</id>
+          <url>http://localhost:8800</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>ibm-bamoe-enterprise-maven-repository</id>
+          <url>http://localhost:8800</url>
+          <releases>
+          <enabled>true</enabled>
+          </releases>
+          <snapshots>
+          <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+
+      <properties>
+        <bamoe.version>9.1.1-ibm-0003</bamoe.version>
+        <bamoe.bom.group-id>com.ibm.bamoe</bamoe.bom.group-id>
+        <bamoe.bom.artifact-id>bamoe-bom</bamoe.bom.artifact-id>
+        <bamoe.bom.version>9.1.1-ibm-0003</bamoe.bom.version>
+        <version.org.jbpm.quarkus.devui>9.1.1-ibm-0003</version.org.jbpm.quarkus.devui>
+      </properties>
+
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>${bamoe.bom.group-id}</groupId>
+            <artifactId>${bamoe.bom.artifact-id}</artifactId>
+            <version>${bamoe.bom.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+
+          <dependency>
+            <groupId>${bamoe.bom.group-id}</groupId>
+            <artifactId>bamoe-techpreview-bom</artifactId>
+            <version>${bamoe.bom.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+    </profile>
+
+    <profile>
+      <id>bamoe-community</id>
+      <activation>
+        <property>
+          <name>bamoe.build</name>
+          <value>bamoe-community</value>
+        </property>
+      </activation>
+
+      <repositories>
+        <repository>
+          <id>apache-public-repository-group</id>
+          <name>Apache Public Repository Group</name>
+          <url>https://repository.apache.org/content/groups/public/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+        </repository>
+      </repositories>
+
+      <pluginRepositories>
+        <pluginRepository>
+          <id>apache-public-repository-group</id>
+          <name>Apache Public Repository Group</name>
+          <url>https://repository.apache.org/content/groups/public/</url>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+
+      <properties>
+        <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
+        <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
+        <kogito.bom.version>999-20240912-SNAPSHOT</kogito.bom.version>
+        <kogito-apps.bom.artifact-id>kogito-apps-bom</kogito-apps.bom.artifact-id>
+        <version.org.kie.kogito>999-20240912-SNAPSHOT</version.org.kie.kogito>
+      </properties>
+
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>${kogito.bom.group-id}</groupId>
+            <artifactId>${kogito.bom.artifact-id}</artifactId>
+            <version>${kogito.bom.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+          <dependency>
+            <groupId>${kogito.bom.group-id}</groupId>
+            <artifactId>${kogito-apps.bom.artifact-id}</artifactId>
+            <version>${version.org.kie.kogito}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+    </profile>
+
+    <profile>
+      <id>kogito-custom-extensions</id>
+      <properties>
+        <quarkus.profile>kogito-custom-extensions</quarkus.profile>
+      </properties>
+    </profile>
+
+    <profile>
+      <id>events</id>
+      <properties>
+        <quarkus.profile>events</quarkus.profile>
+      </properties>
+      <dependencies>
+        <!-- Messaging -->
+        <dependency>
+          <groupId>org.kie</groupId>
+          <artifactId>kie-addons-quarkus-messaging</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-smallrye-reactive-messaging-kafka</artifactId>
+        </dependency>
+        <!-- Events -->
+        <dependency>
+          <groupId>org.kie</groupId>
+          <artifactId>kie-addons-quarkus-events-process</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>observability</id>
+      <properties>
+        <quarkus.profile>observability</quarkus.profile>
+      </properties>
+      <dependencies>
+        <!-- ELK Logging -->
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-logging-gelf</artifactId>
+        </dependency>
+
+        <!-- Observability -->
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-micrometer</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>io.quarkiverse.micrometer.registry</groupId>
+          <artifactId>quarkus-micrometer-registry-otlp</artifactId>
+          <version>${micrometer.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-opentelemetry</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>io.opentelemetry.instrumentation</groupId>
+          <artifactId>opentelemetry-jdbc</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>io.opentelemetry.instrumentation</groupId>
+          <artifactId>opentelemetry-kafka-clients-2.6</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>elk-monitoring</id>
+      <properties>
+        <quarkus.profile>elk-monitoring</quarkus.profile>
+      </properties>
+      <dependencies>
+        <!-- Monitoring - ELK -->
+        <dependency>
+          <groupId>org.kie</groupId>
+          <artifactId>kie-addons-quarkus-monitoring-elastic</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>prometheus-monitoring</id>
+      <properties>
+        <quarkus.profile>prometheus-monitoring</quarkus.profile>
+      </properties>
+      <dependencies>
+        <!-- Monitoring - Prometheus -->
+        <dependency>
+          <groupId>org.kie</groupId>
+          <artifactId>kie-addons-quarkus-monitoring-prometheus</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>container</id>
+      <properties>
+        <quarkus.profile>container</quarkus.profile>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>io.quarkus</groupId>
+          <artifactId>quarkus-container-image-jib</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>development</id>
+      <properties>
+        <quarkus.profile>dev</quarkus.profile>
+        <quarkus.embedded.postgresql.version>0.2.3</quarkus.embedded.postgresql.version>
+        <!--<version.org.jbpm.quarkus.devui>10.0.999-20240915-SNAPSHOT</version.org.jbpm.quarkus.devui>-->
+        <version.org.jbpm.quarkus.devui>999-SNAPSHOT</version.org.jbpm.quarkus.devui>
+      </properties>
+      <!--
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-quarkus-devui-bom</artifactId>
+            <version>${kogito.bom.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+      -->
+      <dependencies>
+        <dependency>
+          <groupId>org.jbpm</groupId>
+          <artifactId>jbpm-quarkus-devui</artifactId>
+          <version>${version.org.jbpm.quarkus.devui}</version>
+        </dependency>
+        <dependency>
+          <groupId>org.kie</groupId>
+          <artifactId>kogito-addons-quarkus-jobs-service-embedded</artifactId>
+        </dependency>
+        <dependency>
+          <groupId>io.quarkiverse.embedded.postgresql</groupId>
+          <artifactId>quarkus-embedded-postgresql</artifactId>
+          <version>${quarkus.embedded.postgresql.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+  </profiles>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>${quarkus.platform.group-id}</groupId>
+        <artifactId>quarkus-maven-plugin</artifactId>
+        <version>${quarkus.platform.version}</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build</goal>
+              <goal>generate-code</goal>
+              <goal>generate-code-tests</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${compiler-plugin.version}</version>
+        <configuration>
+          <compilerArgs>
+            <arg>-parameters</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <configuration>
+          <systemPropertyVariables>
+            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+            <maven.home>${maven.home}</maven.home>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+            <configuration>
+              <systemPropertyVariables>
+                <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                <maven.home>${maven.home}</maven.home>
+              </systemPropertyVariables>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>${maven.enforcer.plugin.version}</version>
+        <executions>
+          <execution>
+            <id>enforce-bamoe-enterprise-xor-community-is-active</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireProperty>
+                  <property>bamoe.build</property>
+                  <message>You must specify product-build. Choose between bamoe-enterprise or
+                    bamoe-community</message>
+                </requireProperty>
+                <!--
+                <requireActiveProfile>
+                  <profiles>bamoe-enterprise,bamoe-community</profiles>
+                  <all>false</all>
+                </requireActiveProfile>
+                <evaluateBeanshell>
+                  <condition><![CDATA[
+                          // bamoe-enterprise XOR bamoe-community<
+                          print("Checking if only one of bamoe-enterprise and bamoe-community profiles is active ...");
+                          boolean profile1 = false, profile2 = false;
+                          for(s: "${project.activeProfiles}".replaceAll("\\[?\\s?Profile \\{id: (?<profile>\\w+), source:
+                \\w+\\}\\]?", "${profile}").split(",")) {
+                              print("Evaluating profile: " + s);
+                              if("bamoe-enterprise".equalsIgnoreCase(s)){ profile1 = true;}
+                              if("bamoe-community".equalsIgnoreCase(s)){ profile2 = true;}
+                          }
+                          print("bamoe-enterprise XOR bamoe-community: "+(profile1 != profile2));
+                          print("Profile bamoe-enterprise active?: "+(profile1));
+                          print("Profile bamoe-community active?: "+(profile2));
+                          return profile1 != profile2;
+                      ]]>
+                    </condition>
+                </evaluateBeanshell>
+                -->
+              </rules>
+              <failFast>true</failFast>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

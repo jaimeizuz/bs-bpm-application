@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="bs-processes" id="_907C50E0-8F58-4667-A55B-8CD664764FEA" name="ServiceTaskProcessValidation">
+  <inputData name="Cities number" id="_420F10E6-C06A-41CF-8EA5-B2AEE1E36213">
+    <variable name="Cities number" id="_19A441DA-C7AE-4A5A-9C2C-BC3BBCDC6B02" typeRef="number" />
+  </inputData>
+  <decision name="Needs validation?" id="_F523995D-3F8B-4F2D-B35A-20E139930279">
+    <variable id="_01118083-09E0-4143-A8F2-78DBE219A348" typeRef="boolean" name="Needs validation?" />
+    <informationRequirement id="_9EB879EF-8A3A-48D5-86F1-FCB54C6CE321">
+      <requiredInput href="#_420F10E6-C06A-41CF-8EA5-B2AEE1E36213" />
+    </informationRequirement>
+    <literalExpression id="_115A69D0-8E25-452D-9E34-DCCA66E88473" typeRef="boolean" label="Needs validation?">
+      <text>if Cities number &gt; 2 then true else false</text>
+    </literalExpression>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_88B1B352-E3A2-4EB4-91DC-5045ED3B118F" name="Default DRD" useAlternativeInputDataShape="true">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_115A69D0-8E25-452D-9E34-DCCA66E88473">
+            <kie:width>456</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_8A9B0525-DE54-4A8A-856A-E7C6121C7104" dmnElementRef="_420F10E6-C06A-41CF-8EA5-B2AEE1E36213" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="220" y="300" width="80" height="100" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_6DEBAF80-F5A6-4D3F-A6D6-F3E9690DEAAC" dmnElementRef="_F523995D-3F8B-4F2D-B35A-20E139930279" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="180" y="140" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_95544A7D-986D-4CE8-87A9-028793758EBD-AUTO-TARGET" dmnElementRef="_9EB879EF-8A3A-48D5-86F1-FCB54C6CE321" sourceElement="_8A9B0525-DE54-4A8A-856A-E7C6121C7104" targetElement="_6DEBAF80-F5A6-4D3F-A6D6-F3E9690DEAAC">
+        <di:waypoint x="260" y="350" />
+        <di:waypoint x="260" y="180" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
