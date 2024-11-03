@@ -4,8 +4,8 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.bs.processes</groupId>
-  <artifactId>bs-processes-servicetasks</artifactId>
+  <groupId>es.santander.scib.funds</groupId>
+  <artifactId>santander-scib-funds-oboarding-processes-servicetasks</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <compiler-plugin.version>3.11.0</compiler-plugin.version>
@@ -17,6 +17,12 @@
     <quarkus.platform.version>3.8.6</quarkus.platform.version>
     <skipITs>true</skipITs>
     <surefire-plugin.version>3.0.0</surefire-plugin.version>
+    <kie.bom.group-id>org.kie</kie.bom.group-id>
+    <kie.bom.artifact-id>kie-core-bom</kie.bom.artifact-id>
+    <kie.bom.version>999-20240912-SNAPSHOT</kie.bom.version>
+    <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
+    <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
+    <kogito.bom.version>999-20240912-SNAPSHOT</kogito.bom.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -27,13 +33,43 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <dependency>
+        <groupId>${kogito.bom.group-id}</groupId>
+        <artifactId>${kogito.bom.artifact-id}</artifactId>
+        <version>${kogito.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>${kie.bom.group-id}</groupId>
+        <artifactId>${kie.bom.artifact-id}</artifactId>
+        <version>${kie.bom.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
   <dependencies>
     <dependency>
-      <groupId>org.bs.business</groupId>
-      <artifactId>bs-rest-services-client</artifactId>
+      <groupId>es.santander.scib.funds</groupId>
+      <artifactId>santander-scib-funds-oboarding-rest-services-client</artifactId>
       <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>process-workitems</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>jbpm-flow</artifactId>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -50,6 +86,7 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
@@ -107,18 +144,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>native</id>
-      <activation>
-        <property>
-          <name>native</name>
-        </property>
-      </activation>
-      <properties>
-        <skipITs>false</skipITs>
-        <quarkus.package.type>native</quarkus.package.type>
-      </properties>
-    </profile>
-  </profiles>
 </project>
