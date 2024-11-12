@@ -1,0 +1,1664 @@
+{
+  "mappings" : [ {
+    "id" : "0fb8f3e2-bddd-44dc-b306-3734e2185f89",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "404"
+        }
+      }
+    },
+    "response" : {
+      "status" : 404,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"notFound\",\n    \"message\" : \"Not Found\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Not Found\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      },
+      "delayDistribution" : {
+        "type" : "fixed",
+        "milliseconds" : 6000
+      }
+    },
+    "uuid" : "0fb8f3e2-bddd-44dc-b306-3734e2185f89",
+    "persistent" : true,
+    "priority" : 1,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.172107923Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "postServeActions" : [ ]
+  }, {
+    "id" : "aa927b0e-1e47-4832-8264-38eaa81c7a02",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "500"
+        }
+      }
+    },
+    "response" : {
+      "status" : 500,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"internalServerError\",\n    \"message\" : \"Internal Server Error\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Internal Server Error\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "aa927b0e-1e47-4832-8264-38eaa81c7a02",
+    "persistent" : true,
+    "priority" : 2,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.174045092Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "postServeActions" : [ ]
+  }, {
+    "id" : "e9d33645-80fd-4d9c-98f6-15d2be3546b4",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/64e0",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 400,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"badRequest\",\n    \"message\" : \"Bad Request\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Bad Request\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "e9d33645-80fd-4d9c-98f6-15d2be3546b4",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.203625357Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "d450b027-ff5b-40d1-8e79-76510cd2ff5e",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/655q",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "{\n  \"bookingUnit\" : \"ne2llwmreqj8p65y75cgnz1iagbvdd8amd8ocwt6vjt9367ueakr0uac\",\n  \"tradingAccountIdentifiers\" : [ {\n    \"id\" : \"umey\",\n    \"type\" : \"LTID\",\n    \"creationDate\" : \"2024-09-05Z\"\n  }, {\n    \"id\" : \"cw2c\",\n    \"type\" : \"FDID\",\n    \"creationDate\" : \"2025-05-25Z\"\n  }, {\n    \"id\" : \"1u01\",\n    \"type\" : \"FDID\",\n    \"creationDate\" : \"2024-06-29Z\"\n  }, {\n    \"id\" : \"hcv5\",\n    \"type\" : \"LTID\",\n    \"creationDate\" : \"2024-03-07Z\"\n  }, {\n    \"id\" : \"14v1\",\n    \"type\" : \"LTID\",\n    \"creationDate\" : \"2025-06-29Z\"\n  }, {\n    \"id\" : \"v66w\",\n    \"type\" : \"FDID\",\n    \"creationDate\" : \"2025-05-10Z\"\n  }, {\n    \"id\" : \"pzj7\",\n    \"type\" : \"LTID\",\n    \"creationDate\" : \"2025-05-02Z\"\n  }, {\n    \"id\" : \"03tk\",\n    \"type\" : \"FDID\",\n    \"creationDate\" : \"2024-07-10Z\"\n  } ],\n  \"industry\" : {\n    \"code\" : \"HDFND\",\n    \"name\" : \"Mandy Doyle III\"\n  },\n  \"sourceApplication\" : {\n    \"code\" : \"h3z15c8y8207tcxlcmxdjco\",\n    \"name\" : \"Jefferey Weissnat II\"\n  },\n  \"status\" : \"ACTIVE\"\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "d450b027-ff5b-40d1-8e79-76510cd2ff5e",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.201356948Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing information about the Entity update.",
+            "type" : "object",
+            "required" : [ "sourceApplication", "bookingUnit" ],
+            "properties" : {
+              "status" : {
+                "$ref" : "#/components/schemas/EntityStatus"
+              },
+              "industry" : {
+                "$ref" : "#/components/schemas/Industry"
+              },
+              "tradingAccountIdentifiers" : {
+                "type" : "array",
+                "description" : "List of Trading Account Identifiers.",
+                "items" : {
+                  "$ref" : "#/components/schemas/TradingAccountIdentifier"
+                }
+              },
+              "sourceApplication" : {
+                "$ref" : "#/components/schemas/SourceApplication"
+              },
+              "bookingUnit" : {
+                "$ref" : "#/components/schemas/BookingUnit"
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "b5e1931e-1714-4329-be1d-a9f50f0cd95b",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/n466",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 504,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"gatewayTimeout\",\n    \"message\" : \"Gateway timeout\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Gateway timeout\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "b5e1931e-1714-4329-be1d-a9f50f0cd95b",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.215237662Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "a2a6da53-9d47-4b61-94e6-fc1d09257268",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/y836",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 404,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"notFound\",\n    \"message\" : \"Not Found\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Not Found\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "a2a6da53-9d47-4b61-94e6-fc1d09257268",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.209966757Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "5c6872ce-2e14-4109-b38b-3da81efb9395",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/1037",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 403,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"forbidden\",\n    \"message\" : \"Forbidden\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Forbidden\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "5c6872ce-2e14-4109-b38b-3da81efb9395",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.207182762Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "5aee66ea-6687-4859-9389-9a47145d2ce4",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/j3zl",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 500,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"internalServerError\",\n    \"message\" : \"Internal Server Error\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Internal Server Error\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "5aee66ea-6687-4859-9389-9a47145d2ce4",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.211650561Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "23077852-efa3-4fba-8a6d-e1cebf91b01b",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/3nk3",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 401,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"unauthorized\",\n    \"message\" : \"Unauthorized\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Unauthorized\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "23077852-efa3-4fba-8a6d-e1cebf91b01b",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.205598344Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "05470ab4-52b4-4959-a097-d9a712d56795",
+    "name" : "Updates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities/1934",
+      "method" : "PATCH"
+    },
+    "response" : {
+      "status" : 503,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"serviceUnavailable\",\n    \"message\" : \"Service Unavailable\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Service Unavailable\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "05470ab4-52b4-4959-a097-d9a712d56795",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.213702986Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "updateEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "f504220d-7588-4e81-8759-f1795d2db8ee",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "jj98"
+        }
+      }
+    },
+    "response" : {
+      "status" : 401,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"unauthorized\",\n    \"message\" : \"Unauthorized\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Unauthorized\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "f504220d-7588-4e81-8759-f1795d2db8ee",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.169536746Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "f0802be5-1829-4f52-ab2e-5097906fc804",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "3fs3"
+        }
+      }
+    },
+    "response" : {
+      "status" : 400,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"badRequest\",\n    \"message\" : \"Bad Request\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Bad Request\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "f0802be5-1829-4f52-ab2e-5097906fc804",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.167629954Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "9923e353-e658-408d-8cff-836d068b584f",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "b97ozu"
+        }
+      }
+    },
+    "response" : {
+      "status" : 403,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"forbidden\",\n    \"message\" : \"Forbidden\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Forbidden\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "9923e353-e658-408d-8cff-836d068b584f",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.170865445Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "93074398-e3fe-4635-96ca-317f04f1e9d6",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "xzc74"
+        }
+      }
+    },
+    "response" : {
+      "status" : 504,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"gatewayTimeout\",\n    \"message\" : \"Gateway timeout\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Gateway timeout\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "93074398-e3fe-4635-96ca-317f04f1e9d6",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.17648411Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "55582b66-81e0-4987-836b-2079e8b15a2f",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "ffn"
+        }
+      }
+    },
+    "response" : {
+      "status" : 503,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"serviceUnavailable\",\n    \"message\" : \"Service Unavailable\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Service Unavailable\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "55582b66-81e0-4987-836b-2079e8b15a2f",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.175447199Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "1fcd11c2-b6b2-4d8f-be66-b7f73068d702",
+    "name" : "Retrieves operational entities. (application/json)",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      },
+      "queryParameters" : {
+        "glcs" : {
+          "matches" : ".*"
+        }
+      }
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "{\n  \"residenceCountry\" : {\n    \"code\" : \"cccca\",\n    \"name\" : \"V\"\n  },\n  \"glcs\" : \"02\",\n  \"localAliases\" : [ {\n    \"type\" : \"aa\",\n    \"value\" : \"aa\"\n  }, {\n    \"type\" : \"aa\",\n    \"value\" : \"aa\"\n  } ],\n  \"name\" : \"Mic\",\n  \"bookingUnit\" : \"aa\",\n  \"tradingAccountIdentifiers\" : [ {\n    \"id\" : \"t84m\",\n    \"type\" : \"LTID\",\n    \"creationDate\" : \"2024-04-24\"\n  }, {\n    \"id\" : \"hz04\",\n    \"type\" : \"FDID\",\n    \"creationDate\" : \"2024-11-09\"\n  }],\n  \"industry\" : {\n    \"code\" : \"SOVER\",\n    \"name\" : \"Miss Houston Fahey\"\n  },\n  \"id\" : 8.659996820626739E307,\n  \"type\" : {\n    \"code\" : \"IND\",\n    \"name\" : \"C Sr.\"\n  },\n  \"sourceApplication\" : {\n    \"code\" : \"aa\",\n    \"name\" : \"ly MD\"\n  },\n  \"status\" : \"ACTIVE\"\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "1fcd11c2-b6b2-4d8f-be66-b7f73068d702",
+    "persistent" : true,
+    "priority" : 5,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.157027341Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities",
+          "schema" : {
+            "description" : "Data structure containing information about the Entity registration.",
+            "type" : "object",
+            "required" : [ "id", "glcs", "name", "type", "industry", "residenceCountry", "bookingUnit", "status", "sourceApplication" ],
+            "properties" : {
+              "id" : {
+                "$ref" : "#/components/schemas/EntityId"
+              },
+              "glcs" : {
+                "$ref" : "#/components/schemas/Glcs"
+              },
+              "name" : {
+                "type" : "string",
+                "description" : "Full name of the Entity.",
+                "example" : "Beijing Branch"
+              },
+              "type" : {
+                "$ref" : "#/components/schemas/EntityType"
+              },
+              "industry" : {
+                "$ref" : "#/components/schemas/Industry"
+              },
+              "residenceCountry" : {
+                "$ref" : "#/components/schemas/Country"
+              },
+              "bookingUnit" : {
+                "$ref" : "#/components/schemas/BookingUnit"
+              },
+              "status" : {
+                "$ref" : "#/components/schemas/EntityStatus"
+              },
+              "localAliases" : {
+                "type" : "array",
+                "description" : "List of local aliases for a given operational entity.",
+                "writeOnly" : true,
+                "items" : {
+                  "$ref" : "#/components/schemas/LocalAlias"
+                }
+              },
+              "tradingAccountIdentifiers" : {
+                "type" : "array",
+                "description" : "List of Trading Account Identifiers.",
+                "readOnly" : true,
+                "items" : {
+                  "$ref" : "#/components/schemas/TradingAccountIdentifier"
+                }
+              },
+              "sourceApplication" : {
+                "$ref" : "#/components/schemas/SourceApplication"
+              }
+            }
+          }
+        }
+      }
+    },
+    "postServeActions" : [ ]
+  }, {
+    "id" : "9241d7a5-d20f-47f0-9310-c7108b0342cb",
+    "name" : "Retrieves operational entities. - 204",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "GET",
+      "queryParameters" : {
+        "glcs" : {
+          "equalTo" : "uyge"
+        }
+      }
+    },
+    "response" : {
+      "status" : 204
+    },
+    "uuid" : "9241d7a5-d20f-47f0-9310-c7108b0342cb",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.165351113Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveEntities"
+        }
+      }
+    }
+  }, {
+    "id" : "c787907b-5eb7-4d2d-8c74-9c81ce7777bf",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 504,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"gatewayTimeout\",\n    \"message\" : \"Gateway timeout\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Gateway timeout\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "c787907b-5eb7-4d2d-8c74-9c81ce7777bf",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.225732683Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "b4dce4cc-340f-49d5-b64e-43757af38a83",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 404,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"notFound\",\n    \"message\" : \"Not Found\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Not Found\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "b4dce4cc-340f-49d5-b64e-43757af38a83",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.222103944Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "98b8372b-b13c-4daa-a373-7091419369fd",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 503,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"serviceUnavailable\",\n    \"message\" : \"Service Unavailable\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Service Unavailable\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "98b8372b-b13c-4daa-a373-7091419369fd",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.224628886Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "96aa96ef-6596-43c1-96d6-710ca022cd72",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 403,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"forbidden\",\n    \"message\" : \"Forbidden\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Forbidden\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "96aa96ef-6596-43c1-96d6-710ca022cd72",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.221409885Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "946e9b38-52fe-409e-a797-7787088eb7ed",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 500,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"internalServerError\",\n    \"message\" : \"Internal Server Error\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Internal Server Error\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "946e9b38-52fe-409e-a797-7787088eb7ed",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.224038379Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "61afa71c-944d-4e90-a8a3-03aa1f06d35e",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 429,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"notFound\",\n    \"message\" : \"Not Found\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Not Found\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "61afa71c-944d-4e90-a8a3-03aa1f06d35e",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.223366248Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "5ac93edd-667f-4591-b622-d21f877bb643",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 406,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"notFound\",\n    \"message\" : \"Not Found\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Not Found\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "5ac93edd-667f-4591-b622-d21f877bb643",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.222739194Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "3d769069-c3cf-4eef-a295-a8f83f24a1f3",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "{\n  \"components\" : [ {\n    \"name\" : \"Johnathan Conroy\",\n    \"type\" : \"0vb6omldq5edxcp6fg64a21jkyfv5qltm6ceymbqou\",\n    \"status\" : \"UNKNOWN\"\n  } ],\n  \"status\" : \"OUT_OF_SERVICE\"\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "3d769069-c3cf-4eef-a295-a8f83f24a1f3",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.218875306Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing information about the health response.",
+            "type" : "object",
+            "required" : [ "status", "components" ],
+            "properties" : {
+              "status" : {
+                "$ref" : "#/components/schemas/Status"
+              },
+              "components" : {
+                "type" : "array",
+                "description" : "List of components.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Component"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "27d8bbc3-7aa4-457a-aeee-7662ef3b3a99",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 400,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"badRequest\",\n    \"message\" : \"Bad Request\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Bad Request\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "27d8bbc3-7aa4-457a-aeee-7662ef3b3a99",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.220087908Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "1c5c1df4-fae0-4cf8-9c57-cfcbac2c95c3",
+    "name" : "Retrieve the liveness and the readiness of the service. (application/json)",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "application/json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 401,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"unauthorized\",\n    \"message\" : \"Unauthorized\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Unauthorized\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "1c5c1df4-fae0-4cf8-9c57-cfcbac2c95c3",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.220732416Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "0ea2b842-ce7f-43bc-ba71-ced07f0ce7f2",
+    "name" : "Retrieve the liveness and the readiness of the service. - 204",
+    "request" : {
+      "urlPath" : "/health",
+      "method" : "GET"
+    },
+    "response" : {
+      "status" : 204
+    },
+    "uuid" : "0ea2b842-ce7f-43bc-ba71-ced07f0ce7f2",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.219395761Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "retrieveHealth"
+        }
+      }
+    }
+  }, {
+    "id" : "ffdb4155-6627-493b-9c3f-e0e561133b3d",
+    "name" : "Dummy",
+    "request" : {
+      "url" : "/dummy",
+      "method" : "GET",
+      "headers" : {
+        "Accept" : {
+          "contains" : "json"
+        }
+      }
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "{}",
+      "headers" : { }
+    },
+    "uuid" : "ffdb4155-6627-493b-9c3f-e0e561133b3d",
+    "persistent" : true,
+    "priority" : 5,
+    "postServeActions" : [ ]
+  }, {
+    "id" : "ec340873-6238-4e43-9d48-4a3f7f7c2254",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 404,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"notFound\",\n    \"message\" : \"Not Found\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Not Found\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "ec340873-6238-4e43-9d48-4a3f7f7c2254",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.181033634Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "82ace026-a18d-412a-bf19-ac6fcf33835f",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 500,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"internalServerError\",\n    \"message\" : \"Internal Server Error\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Internal Server Error\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "82ace026-a18d-412a-bf19-ac6fcf33835f",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.181652072Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "7c8a118c-0022-490f-a807-1d27fdf77c8a",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 401,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"unauthorized\",\n    \"message\" : \"Unauthorized\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Unauthorized\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "7c8a118c-0022-490f-a807-1d27fdf77c8a",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.179650833Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "695c7f8c-dbe3-4f92-8ad2-5763b720532c",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 200,
+      "body" : "{\n  \"glcs\" : \"0cl8x1y8j92v9p4vlhpc21x8taccjnaq27kjk0j1914qf5r1pcajc4mxd9\",\n  \"id\" : 3.2008797052585434E307\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "695c7f8c-dbe3-4f92-8ad2-5763b720532c",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.178183886Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing information about the Entity registration response from SIGOM.",
+            "type" : "object",
+            "required" : [ "glcs", "id" ],
+            "properties" : {
+              "id" : {
+                "$ref" : "#/components/schemas/EntityId"
+              },
+              "glcs" : {
+                "$ref" : "#/components/schemas/Glcs"
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "54aba8b3-14bb-4b42-b144-61ec1b8979cf",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 504,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"gatewayTimeout\",\n    \"message\" : \"Gateway timeout\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Gateway timeout\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "54aba8b3-14bb-4b42-b144-61ec1b8979cf",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.183163023Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "4c89d36c-a5c5-4c9e-99e6-057803ae42ca",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 400,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"badRequest\",\n    \"message\" : \"Bad Request\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Bad Request\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "4c89d36c-a5c5-4c9e-99e6-057803ae42ca",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.178974747Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "294bc54e-d73a-4135-a51e-98b900506cd7",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 403,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"forbidden\",\n    \"message\" : \"Forbidden\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Forbidden\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "294bc54e-d73a-4135-a51e-98b900506cd7",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.180368668Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }, {
+    "id" : "06d316e9-0bb2-41ea-994f-af8bf77cf05e",
+    "name" : "Creates an operational entity.",
+    "request" : {
+      "urlPath" : "/entities",
+      "method" : "POST"
+    },
+    "response" : {
+      "status" : 503,
+      "body" : "{\n  \"errors\" : [ {\n    \"code\" : \"serviceUnavailable\",\n    \"message\" : \"Service Unavailable\",\n    \"level\" : \"ERROR\",\n    \"description\" : \"Service Unavailable\"\n  } ]\n}",
+      "headers" : {
+        "Content-Type" : "application/json"
+      }
+    },
+    "uuid" : "06d316e9-0bb2-41ea-994f-af8bf77cf05e",
+    "persistent" : true,
+    "metadata" : {
+      "mocklab" : {
+        "created" : {
+          "at" : "2024-10-23T17:30:47.182220598Z",
+          "via" : "OAS3_IMPORT"
+        },
+        "oas" : {
+          "operationId" : "createEntities",
+          "schema" : {
+            "description" : "Data structure containing the details for errors.",
+            "type" : "object",
+            "minProperties" : 1,
+            "properties" : {
+              "errors" : {
+                "type" : "array",
+                "description" : "List of errors.",
+                "items" : {
+                  "$ref" : "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  } ],
+  "meta" : {
+    "total" : 37
+  }
+}
